@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Sehenswürdigkeiten - Marseille</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="sidebar">
+    <a href="index.html">Home</a>
+    <a href="sehenswuerdigkeiten.html">Sehenswürdigkeiten</a>
+    <a href="freizeit.html">Freizeit</a>
+    <a href="food.html">Food & Ausgehen</a>
+  </div>
+
+  <div class="content">
+    
+
+    <div class="grid-container">
+      <div class="card" onclick="openDetail('port')">
+        <img src="port.jpg" alt="Vieux Port">
+        <div class="card-overlay"><h2>Vieux Port</h2></div>
+      </div>
+
+      <div class="card" onclick="openDetail('notredame')">
+        <img src="notredame.jpeg" alt="Notre-Dame de la Garde">
+        <div class="card-overlay"><h2>Notre-Dame</h2></div>
+      </div>
+
+      <div class="card" onclick="openDetail('mucem')">
+        <img src="mucem.webp" alt="MuCEM">
+        <div class="card-overlay"><h2>MuCEM</h2></div>
+      </div>
+
+      <div class="card" onclick="openDetail('calanques')">
+        <img src="calanques.webp" alt="Les Calanques">
+        <div class="card-overlay"><h2>Les Calanques</h2></div>
+      </div>
+
+      <div class="card" onclick="openDetail('panier')">
+        <img src="panier.avif" alt="Le Panier">
+        <div class="card-overlay"><h2>Le Panier</h2></div>
+      </div>
+
+      <div class="card" onclick="openDetail('if')">
+        <img src="if.jpg" alt="Château d'If">
+        <div class="card-overlay"><h2>Château d'If</h2></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

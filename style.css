@@ -1,0 +1,389 @@
+
+
+/* 1. Grund-Setup für Fullscreen-Optik */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif; /* Ein moderner, sauberer Font */
+  /* overflow: hidden; /* Verhindert Scrollen auf der Home-Seite für den App-Look */
+}
+
+/* 2. Die Navigation oben (vorher Sidebar) */
+.sidebar {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  border-bottom: 2px solid #333; /* Umrandung unten */
+}
+
+.sidebar h2 {
+  display: none; /* Versteckt den Titel in der Leiste für einen cleanen Look */
+}
+
+.sidebar a {
+  flex: 1; /* Teilt den Platz exakt gleich auf alle Links auf */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-right: 1px solid #eee; /* Feine Trennlinien zwischen den Spalten */
+  transition: background 0.3s;
+}
+
+.sidebar a:last-child {
+  border-right: none;
+}
+
+.sidebar a:hover {
+  background-color: #f8f8f8;
+  color: #007bff;
+}
+
+/* 3. Der Content-Bereich als Fullscreen-Bild */
+.content {
+  position: relative;
+  height: calc(100vh - 60px); /* Restlicher Bildschirm unter der Nav */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Zentriert Text vertikal */
+  align-items: center;     /* Zentriert Text horizontal */
+  text-align: center;
+}
+
+.header-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Streckt das Bild über den ganzen Rest-Bildschirm */
+  z-index: -1;
+  filter: brightness(0.7); /* Macht das Bild etwas dunkler, damit weißer Text besser lesbar ist */
+}
+
+/* 4. Text-Styling (Harmonisch & Modern) */
+h1 {
+  color: white;
+  font-size: clamp(2rem, 5vw, 4rem); /* Passt sich der Bildschirmgröße an */
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+p {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-top: 20px;
+  max-width: 600px;
+  line-height: 1.8;
+  border-top: 1px solid rgba(255,255,255,0.4); /* Elegante Linie über dem Text */
+  padding-top: 20px;
+}
+
+/* Container für das Raster */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Spalten mit gleicher Breite */
+  gap: 20px; /* Abstand zwischen den Boxen */
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Die einzelnen Karten */
+.card {
+  position: relative;
+  height: 250px;
+  border-radius: 15px; /* Abgerundete Ecken */
+  overflow: hidden; /* Schneidet das Bild an den Ecken ab */
+  border: 2px solid #eee; /* Dezente Umrandung */
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Kleiner "Hüpfer" beim Drüberfahren */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  border-color: #3498db; /* Umrandung wird blau beim Hover */
+}
+
+/* Das Bild in der Karte */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay für den Namen in der Mitte */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Dunkler Schleier für Lesbarkeit */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.card:hover .card-overlay {
+  background: rgba(0, 0, 0, 0.5); /* Wird beim Hover etwas dunkler */
+}
+
+.card h2 {
+  color: white;
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- FOOD PAGE DESIGN UPGRADE --- */
+
+/* Hero Bereich mit sanftem Hintergrundverlauf */
+/* 1. BASIS-STYLING (Verhindert das Ausbrechen von Bildern) */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fcfcfc;
+  /* overflow-x: hidden; /* Verhindert seitliches Scrollen */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 2. NAVIGATION (Sidebar oben) */
+.sidebar {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  border-bottom: 2px solid #2c3e50;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.sidebar a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  border-right: 1px solid #eee;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #f1c40f;
+  color: #2c3e50;
+}
+
+/* 3. FOOD HERO */
+.food-hero {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  margin-bottom: 50px;
+}
+
+.food-hero h1 {
+  font-size: 3.5rem;
+  margin: 0;
+}
+
+/* 4. FOOD CONTAINER & ROWS */
+.food-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.food-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 100px;
+}
+
+/* DAS GEHEIMNIS: Jede zweite Reihe umdrehen */
+.food-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* 5. BILDER-KÄFIG (Verhindert "Riesige Bilder") */
+.food-image {
+  /* Hiermit erzwingen wir die Größe, egal wie groß das Originalbild ist */
+  flex: 0 0 450px; 
+  width: 450px;
+  height: 350px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.food-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* WICHTIG: Bild füllt den Kasten ohne Verzerrung */
+  transition: transform 0.6s ease;
+}
+
+.food-row:hover .food-image img {
+  transform: scale(1.1); /* Zoom-Effekt beim Hover */
+}
+
+/* 6. TEXT-STYLING */
+.food-text {
+  flex: 1;
+}
+
+.category {
+  display: inline-block;
+  background: #f1c40f;
+  color: #2c3e50;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.food-text h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin: 10px 0;
+}
+
+.food-text p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.btn-info {
+  background: #2c3e50;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.btn-info:hover {
+  background: #3498db;
+  transform: translateY(-3px);
+}
+
+/* 7. MOBILE OPTIMIERUNG */
+@media (max-width: 900px) {
+  .food-row, .food-row:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .food-image {
+    width: 100%;
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+}
+
+
+
+
+
+
+/* Das Grid für die Boxen */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Die einzelne Box */
+.card {
+  position: relative; /* Wichtig für die Positionierung des Textes */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Der Textbereich unten in der Box */
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7); /* Halbdurchsichtiges Schwarz */
+  color: white;
+  padding: 15px;
+}
+
+.card-overlay strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.card-overlay p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+
+.logo-container {
+     /* Zentriert das Logo horizontal */
+    margin-top: 70px;    /* Abstand zum Text oben */
+    padding-bottom: 20px;
+}
+
+.footer-logo {
+    width: 150px;        /* Breite des Logos (anpassbar) */
+    height: auto;        /* Behält das Seitenverhältnis bei */
+    opacity: 0.8;        /* Optional: Macht es dezent transparenter */
+    transition: 0.3s;    /* Für einen sanften Hover-Effekt */
+}
+
+.footer-logo:hover {
+    opacity: 1;          /* Wird beim Drüberfahren voll sichtbar */
+}

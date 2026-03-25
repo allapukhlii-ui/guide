@@ -1,0 +1,15 @@
+
+
+function openDetail(id) {
+  const infos = {
+    'port': 'Er ist der älteste Hafen Frankreichs und symbolisiert das Bild von Marseille. Geschützt durch die Festungen Saint-Nicolas und Saint-Jean, überragt vom Pharo-Palast und der bekannten Silhouette von Notre-Dame-de-la-Garde, gehört der Alte Hafen zu den wichtigsten Sehenswürdigkeiten für Besucher. Hier finden sich viele Restaurants, Geschäfte, Einkaufszentren, Cafés und Museen, die diesen belebten Treffpunkt und Spazierort umgeben.',
+    'notredame': 'Der wahre Glanz des Wahrzeichens von Marseille ist im prächtigen Inneren vertreten. Die liebevoll „la bonne mère“ ( „die gute Mutter“) genannte Kirche blickt auf eine mehrere Jahrhunderte alte Geschichte zurück. Ursprünglich im 15. und 16. Jahrhundert  errichtet, wurde sie im 19. Jahrhundert schrittweise restauriert. In früheren Zeiten hatte sie vorranging die Bedeutung als Festung inne, während sie heute einen Wallfahrtsort für Gläubige darstellt. Durch die Lage der Kirche auf einer über 150 Meter hohen Anhöhe habt ihr von dort aus auch eine wunderbare Aussicht über Marseille. Schon allein deshalb lohnt sich der Besuch!',
+    'mucem': 'Marseille begeistert mit reicher Geschichte und kultureller Vielfalt . Besonders sehenswert sind die zahlreichen interessanten Museen, wie das moderne Mucem, die einen spannenden Einblick in Kunst, Geschichte und die mediterrane Kultur bieten. modernes Museum über die Zivilisationen des Mittelmeers.',
+    'calanques': 'Ruhe und Gelassenheit sind nach dem städtischen Trubel genau das Richtige? Dann auf in den Calanques Nationalpark! Es handelt sich um einen Naturpark mit den sogenannten „Calanques“ im Mittelpunkt. Der Nationalpark gehört zu den Lieblingsattraktionen von Wanderern, Tierbeobachtern und Naturfotografen, denn mit ein bisschen Glück sind Tiere wie Delfine und Meeresschildkröten im geschützten Meeresteil des Gebiets zu sehen. Das Ganze geht jedoch nur zwischen Oktober und Juni, denn von Juli bis September ist der Park für die Öffentlichkeit geschlossen',
+    'panier': 'Le Panier als ältester Teil von Marseille sollte ebenfalls nicht fehlen, wenn ihr die Stadt erkundet. Beim Gang durch die schmalen Gassen wird euch die Street-Art nicht verborgen bleiben. Der Fotoapparat klickt hier wohl mehr als nur einmal! Kleine Pausen sind in den gemütlichen Cafés ebenso möglich wie Abstecher in die inhabergeführten Läden, in denen einige Schätze zu finden sein sollten.',
+    'if': 'Im 16. Jahrhundert entstand die Festung Château d’If auf einer vorgelagerten Insel vor Marseille. Sie sollte den Hafenzugang vor Angriffen schützen und gleichzeitig die Überwachung der Stadt sichern. Ihr kamen unterschiedliche Funktionen zu, etwa als reine Schutzfestung oder als Gefängnis und Kerker. Auch von dieser Festung aus, die ihr per Fähre erreicht, habt ihr einen traumhaften Blick über die Gegend. Zudem könnt ihr die Ausstellung im Inneren des Châteaus d’Ifs gegen ein kleines Eintrittsgeld besuchen und mehr über die Festung und ihre Geschichte erfahren.'
+  };
+
+  alert(infos[id]); // Zeigt die Info in einem Popup
+}
+
