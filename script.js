@@ -13,6 +13,7 @@ function openDetail(id) {
   alert(infos[id]); // Zeigt die Info in einem Popup
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const cardGroups = document.querySelectorAll('.card-group');
 
