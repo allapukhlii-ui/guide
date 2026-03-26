@@ -1,13 +1,12 @@
-
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
   font-family: 'Montserrat', sans-serif;
+  background-color: #f4f7f6;
 }
 
-/* 2. NAVIGATION (Sidebar oben) */
 .sidebar {
   display: flex;
   width: 100%;
@@ -29,110 +28,125 @@ html, body {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 0.85rem;
-  border-right: 1px solid #eee;
   transition: 0.3s;
 }
 
-.sidebar a:hover {
+.sidebar a.active, .sidebar a:hover {
   background-color: #f1c40f;
-  color: #2c3e50;
 }
 
-/* Zentrierung des Inhalts */
 .content {
-  max-width: 1200px; /* Begrenzt die Breite auf großen Bildschirmen */
-  margin: 40px auto; /* Zentriert den gesamten Block horizontal */
-  padding: 0 20px;   /* Abstand zum Rand bei kleinen Bildschirmen */
-  text-align: center; /* Zentriert Überschriften */
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
 }
 
-/* Das Grid für die Boxen */
 .grid-container {
   display: grid;
-  /* Erstellt Spalten, die sich automatisch anpassen und zentrieren */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 350px)); 
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
   gap: 30px;
-  justify-content: center; /* Zentriert die Boxen innerhalb des Grids */
+  justify-content: center;
 }
 
-/* Die einzelne Box */
-.card {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px); /* Kleiner Effekt beim Drüberfahren */
-}
-
-.card img {
-  width: 100%;
-  height: 400px; /* Einheitliche Höhe für alle Bilder */
-  object-fit: cover; /* Schneidet Bilder sauber zu, ohne sie zu quetschen */
-  display: block;
-}
-
-/* Der Textbereich unten */
-.card-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); /* Schönerer Verlauf */
-  color: white;
-  padding: 20px;
-  text-align: left; /* Text in der Box linksbündig für bessere Lesbarkeit */
-}
-
-.card-overlay strong {
-  display: block;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 5px;
-  text-transform: uppercase;
-}
-
-.card-overlay p {
-  margin: 0;
-  font-size: 0.9rem;
-  font-weight: 400;
-  opacity: 0.9;
-}
-
-/* Erlaubt es, Bild und Info-Box als eine Einheit zu stapeln */
 .card-group {
   display: flex;
   flex-direction: column;
 }
 
-/* Die Bild-Box (oben) */
 .card {
   position: relative;
-  border-radius: 12px 12px 0 0; /* Rundung nur oben */
+  border-radius: 12px 12px 0 0;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Die Info-Box (direkt darunter) */
-.card-info {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 0 0 12px 12px; /* Rundung nur unten */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  text-align: left;
-  line-height: 1.6;
-  color: #333;
-  font-size: 0.9rem;
-  border-top: 1px solid #eee; /* Trennlinie zum Bild */
-}
-
-/* Damit die Bilder alle gleich groß bleiben */
 .card img {
   width: 100%;
   height: 300px;
   object-fit: cover;
+  display: block;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 20px;
+  text-align: left;
+}
+
+.card-info {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+/* --- RATING & FEEDBACK STYLE --- */
+
+.rating-box {
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.stars {
+  font-size: 1.5rem;
+  color: #ccc;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.star.active {
+  color: #f1c40f;
+}
+
+textarea {
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.save-btn {
+  background: #2c3e50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+
+.save-btn:hover {
+  background: #f1c40f;
+  color: #2c3e50;
+}
+
+.feedback-display {
+  margin-top: 20px;
+}
+
+.feedback-item {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  border-left: 5px solid #f1c40f;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+}
+
+.feedback-item strong {
+  color: #f1c40f;
   display: block;
 }

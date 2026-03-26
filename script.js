@@ -13,3 +13,79 @@ function openDetail(id) {
   alert(infos[id]); // Zeigt die Info in einem Popup
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const cardGroups = document.querySelectorAll('.card-group');
+
+    cardGroups.forEach(group => {
+        const id = group.getAttribute('data-id');
+        const stars = group.querySelectorAll('.star');
+        const saveBtn = group.querySelector('.save-btn');
+        const textarea = group.querySelector('textarea');
+        const display = group.querySelector('.feedback-display');
+        
+        let selectedRating = 0;
+
+        // Sterne anklickbar machen
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedRating = star.getAttribute('data-value');
+                updateStarUI(stars, selectedRating);
+            });
+        });
+
+        function updateStarUI(starElements, rating) {
+            starElements.forEach(s => {
+                if (s.getAttribute('data-value') <= rating) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+        }
+
+        // Speichern-Button
+        saveBtn.addEventListener('click', () => {
+            const text = textarea.value.trim();
+            
+            if (selectedRating === 0 || text === "") {
+                alert("Bitte wähle Sterne und schreibe einen kurzen Text!");
+                return;
+            }
+
+            const newFeedback = {
+                rating: selectedRating,
+                comment: text,
+                date: new Date().toLocaleDateString('de-DE')
+            };
+
+            // Im LocalStorage speichern
+            let storageKey = `feedback_${id}`;
+            let existingData = JSON.parse(localStorage.getItem(storageKey)) || [];
+            existingData.push(newFeedback);
+            localStorage.setItem(storageKey, JSON.stringify(existingData));
+
+            // Formular zurücksetzen
+            textarea.value = "";
+            selectedRating = 0;
+            updateStarUI(stars, 0);
+
+            // Anzeige aktualisieren
+            renderFeedback(id, display);
+        });
+
+        // Funktion zum Anzeigen der Kommentare
+        function renderFeedback(placeId, container) {
+            let data = JSON.parse(localStorage.getItem(`feedback_${placeId}`)) || [];
+            container.innerHTML = data.map(item => `
+                <div class="feedback-item">
+                    <strong>${"★".repeat(item.rating)}${"☆".repeat(5-item.rating)}</strong>
+                    <p>${item.comment}</p>
+                    <small>${item.date}</small>
+                </div>
+            `).join('');
+        }
+
+        // Beim Laden der Seite alte Kommentare anzeigen
+        renderFeedback(id, display);
+    });
+});
